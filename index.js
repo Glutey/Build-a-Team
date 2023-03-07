@@ -8,14 +8,14 @@ const fs = require("fs");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const render = require("./src/page-template.js"); //i know i have to use this but not sure how or where
+const render = require("./src/page-template.js"); 
 
 const teamMembers = [];
 
-function createManager() {   //i have tried to create a function to create the manager and then call it in the createTeam function but it is not working
-  return inquirer            //im having difficulty trying to understand / figure out how i can call/render these functions.. 
-    .prompt([               // i know that each one has been written correctly for hwat it is on its own, but not sure if they are working together as needed
-      {                     // nor do i know how to get the code to run so that these prompts gather info from the user and generate HTML
+function createManager() {   
+  return inquirer            
+    .prompt([                
+      {                     
         type: "input",
         name: "name",
         message: "What is the team manager's name?",
@@ -147,9 +147,9 @@ function generateTeam() {
         if (!fs.existsSync(OUTPUT_DIR)) {
           fs.mkdirSync(OUTPUT_DIR);
         }
+        fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
 }
 
-      
-render(teamMembers); // is this right for the render and generation of the HTML... 
- 
-// the readme states that we have the render function provided and this was it
+
+createManager();
+
