@@ -20,6 +20,3 @@ class Employee {
 }
 module.exports = Employee;
 
-// I have to run tests on eeach of the classes to make sure they pass, but having difficulty getting the tests to run correctly..
-// i have ran 'npm run test' in the terminal, but i am not sure if that is correct or not
-
